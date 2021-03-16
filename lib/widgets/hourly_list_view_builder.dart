@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/providers/home_page_provider.dart';
 
+import 'hourly_detailed.dart';
+
 class HourlyListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,6 +13,7 @@ class HourlyListViewBuilder extends StatelessWidget {
         itemCount: providerData.apiModel.hourly.length,
         itemBuilder: (context, index) {
           return Card(
+            color: Colors.blueAccent,
             child: Column(
               children: <Widget>[
                 ListTile(
@@ -20,10 +23,20 @@ class HourlyListViewBuilder extends StatelessWidget {
                         providerData.apiModel.hourly[index].weather[0].icon +
                         '.png'),
                   ),
-                  title:
-                      Text(providerData.apiModel.hourly[index].dt.toString()),
+                  title: Text(providerData.apiModel.hourly[index].dt
+                      .toString()
+                      .replaceFirst('.000', '')),
                   subtitle: Text('Temperature: ' +
                       providerData.apiModel.hourly[index].temp.toString()),
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      child: HourlyDetailed(
+                        apiModel: providerData.apiModel,
+                        index: index,
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

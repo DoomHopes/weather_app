@@ -138,21 +138,21 @@ class Weather {
 
   int id;
   Main main;
-  Description description;
+  String description;
   String icon;
 
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
         id: json["id"],
         main: mainValues.map[json["main"]],
-        description: descriptionValues.map[json["description"]],
+        description: json["description"],
         icon: json["icon"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "main": mainValues.reverse[main],
-        "description": descriptionValues.reverse[description],
-        "icon": iconValues.reverse[icon],
+        "description": description,
+        "icon": icon,
       };
 }
 
@@ -217,8 +217,8 @@ class Daily {
   });
 
   DateTime dt;
-  int sunrise;
-  int sunset;
+  DateTime sunrise;
+  DateTime sunset;
   Temp temp;
   FeelsLike feelsLike;
   int pressure;
@@ -234,8 +234,10 @@ class Daily {
 
   factory Daily.fromJson(Map<String, dynamic> json) => Daily(
         dt: DateTime.fromMillisecondsSinceEpoch(json["dt"] * 1000).toLocal(),
-        sunrise: json["sunrise"],
-        sunset: json["sunset"],
+        sunrise: DateTime.fromMillisecondsSinceEpoch(json["sunrise"] * 1000)
+            .toLocal(),
+        sunset: DateTime.fromMillisecondsSinceEpoch(json["sunset"] * 1000)
+            .toLocal(),
         temp: Temp.fromJson(json["temp"]),
         feelsLike: FeelsLike.fromJson(json["feels_like"]),
         pressure: json["pressure"],

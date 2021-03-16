@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         locale: ui.window.locale,
         title: 'Weather App',
         initialRoute: '/first',
-        theme: ThemeData.dark(),
+        color: Colors.grey,
         debugShowCheckedModeBanner: false,
         routes: {
           '/first': (context) => HomePage(),

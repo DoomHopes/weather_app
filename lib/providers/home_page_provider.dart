@@ -5,8 +5,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:weather_app/models/api_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/widgets/circular_progress_loading.dart';
-import 'package:weather_app/widgets/dayly_list_view_builder.dart';
-import 'package:weather_app/widgets/houry_list_view_builder.dart';
+import 'package:weather_app/widgets/daily_list_view_builder.dart';
+import 'package:weather_app/widgets/hourly_list_view_builder.dart';
 
 class HomePageProvider extends ChangeNotifier {
   ApiModel apiModel;
@@ -28,7 +28,7 @@ class HomePageProvider extends ChangeNotifier {
       getMainPageAndScheme();
       return const CircularProgressLoading();
     } else if (dropDownItem == 1) {
-      return DailyListViewBuilder();
+      return DailyListViewBuilder(apiModel: apiModel);
     } else if (dropDownItem == 2) {
       return HourlyListViewBuilder();
     }
