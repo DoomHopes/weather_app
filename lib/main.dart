@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app/pages/home_page.dart';
+import 'dart:ui' as ui;
+
+import 'providers/home_page_provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,10 +12,22 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Wallpaper app',
-      theme: ThemeData.dark(),
-      home: HomePage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<HomePageProvider>(
+          create: (_) => HomePageProvider(),
+        )
+      ],
+      child: MaterialApp(
+        locale: ui.window.locale,
+        title: 'Weather App',
+        initialRoute: '/first',
+        theme: ThemeData.dark(),
+        debugShowCheckedModeBanner: false,
+        routes: {
+          '/first': (context) => HomePage(),
+        },
+      ),
     );
   }
 }
