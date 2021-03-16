@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/providers/home_page_provider.dart';
+import 'package:weather_app/utils/connection_checker.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,8 +12,15 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
+    ConnectionChecker().checkConnection(context);
     context.read<HomePageProvider>().getCurrentLocation();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    ConnectionChecker().listener.cancel();
+    super.dispose();
   }
 
   String dropdownValue;
@@ -22,22 +30,6 @@ class _HomePageState extends State<HomePage> {
       builder: (context, providerData, child) => Scaffold(
         appBar: AppBar(
           title: Text('Weather app'),
-          actions: <Widget>[
-            DropdownButton<String>(
-              value: dropdownValue,
-              onChanged: (String newValue) {
-                providerData.setSelectedItem(newValue);
-              },
-              items: providerData.items.map<DropdownMenuItem<String>>(
-                (String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                },
-              ).toList(),
-            ),
-          ],
         ),
         body: Visibility(
           child: providerData.listViewBuilder(),

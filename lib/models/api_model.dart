@@ -4,7 +4,6 @@ class ApiModel {
     this.lon,
     this.timezone,
     this.timezoneOffset,
-    this.current,
     this.hourly,
     this.daily,
   });
@@ -13,7 +12,6 @@ class ApiModel {
   double lon;
   String timezone;
   int timezoneOffset;
-  Current current;
   List<Current> hourly;
   List<Daily> daily;
 
@@ -22,7 +20,6 @@ class ApiModel {
         lon: json["lon"].toDouble(),
         timezone: json["timezone"],
         timezoneOffset: json["timezone_offset"],
-        current: Current.fromJson(json["current"]),
         hourly:
             List<Current>.from(json["hourly"].map((x) => Current.fromJson(x))),
         daily: List<Daily>.from(json["daily"].map((x) => Daily.fromJson(x))),
@@ -33,7 +30,6 @@ class ApiModel {
         "lon": lon,
         "timezone": timezone,
         "timezone_offset": timezoneOffset,
-        "current": current.toJson(),
         "hourly": List<dynamic>.from(hourly.map((x) => x.toJson())),
         "daily": List<dynamic>.from(daily.map((x) => x.toJson())),
       };

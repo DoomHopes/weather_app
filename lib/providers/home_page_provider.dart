@@ -13,23 +13,8 @@ class HomePageProvider extends ChangeNotifier {
 
   static const _apiKey = '4d38180ec165390666ef08d99a2a52cb';
 
-  double _lat = 30.5167;
-  double _lon = 50.4333;
-
-  List<String> _items = [
-    'Daily',
-    'Hourly',
-  ];
-
-  String _selectedItem;
-
-  List<String> get items => _items;
-  String get selected => _selectedItem;
-
-  void setSelectedItem(String s) {
-    _selectedItem = s;
-    notifyListeners();
-  }
+  double _lat;
+  double _lon;
 
   Widget listViewBuilder() {
     if (apiModel == null) {
@@ -52,10 +37,14 @@ class HomePageProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // lat = 30.5167, lon = 50.4333
+  // lat = 30.5238000, lon = 50.4546600
   Future<ApiModel> getData(double lat, double lon) async {
+    if (lat == null || lon == null) {
+      lat = 50.588341299999996;
+      lon = 30.5125639268269;
+    }
     String url =
-        'https://api.openweathermap.org/data/2.5/onecall?lat=$lat&lon=$lon&exclude=minutely&appid=$_apiKey&units=metric';
+        'https://api.openweathermap.org/data/2.5/onecall?lat=$lat&lon=$lon&exclude=minutely,current&appid=$_apiKey&units=metric';
     final response = await http.get(url);
     if (response.statusCode == 200) {
       final dynamic jsondata = json.decode(response.body);
