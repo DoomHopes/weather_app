@@ -15,12 +15,29 @@ class _HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  String dropdownValue;
   @override
   Widget build(BuildContext context) {
     return Consumer<HomePageProvider>(
       builder: (context, providerData, child) => Scaffold(
         appBar: AppBar(
           title: Text('Weather app'),
+          actions: <Widget>[
+            DropdownButton<String>(
+              value: dropdownValue,
+              onChanged: (String newValue) {
+                providerData.setSelectedItem(newValue);
+              },
+              items: providerData.items.map<DropdownMenuItem<String>>(
+                (String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                },
+              ).toList(),
+            ),
+          ],
         ),
         body: Visibility(
           child: providerData.listViewBuilder(),

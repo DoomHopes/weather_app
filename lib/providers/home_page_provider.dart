@@ -9,20 +9,34 @@ import 'package:weather_app/widgets/dayly_list_view_builder.dart';
 import 'package:weather_app/widgets/houry_list_view_builder.dart';
 
 class HomePageProvider extends ChangeNotifier {
-  ApiModel _apiModel;
+  ApiModel apiModel;
+
   static const _apiKey = '4d38180ec165390666ef08d99a2a52cb';
 
   double _lat = 30.5167;
   double _lon = 50.4333;
 
+  List<String> _items = [
+    'Daily',
+    'Hourly',
+  ];
+
+  String _selectedItem;
+
+  List<String> get items => _items;
+  String get selected => _selectedItem;
+
+  void setSelectedItem(String s) {
+    _selectedItem = s;
+    notifyListeners();
+  }
+
   Widget listViewBuilder() {
-    if (_apiModel == null) {
+    if (apiModel == null) {
       getModelFromApi(_lat, _lon);
       return const CircularProgressLoading();
     } else {
-      return DailyListViewBuilder(
-        apiModel: _apiModel,
-      );
+      return DailyListViewBuilder();
     }
   }
 
@@ -34,7 +48,7 @@ class HomePageProvider extends ChangeNotifier {
   }
 
   Future<void> getModelFromApi(double lat, double lon) async {
-    _apiModel = await getData(lat, lon);
+    apiModel = await getData(lat, lon);
     notifyListeners();
   }
 
