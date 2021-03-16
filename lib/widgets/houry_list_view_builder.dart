@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/api_model.dart';
 
-class DaylyListViewBuilder extends StatelessWidget {
+class HouryListViewBuilder extends StatelessWidget {
   final ApiModel apiModel;
 
-  DaylyListViewBuilder({this.apiModel});
+  HouryListViewBuilder({this.apiModel});
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -18,12 +18,10 @@ class DaylyListViewBuilder extends StatelessWidget {
                 leading: Container(
                   constraints: BoxConstraints.tightFor(width: 80.0),
                   child: Image.network('http://openweathermap.org/img/wn/' +
-                      apiModel.daily[index].weather[0].icon +
+                      apiModel.hourly[index].weather[0].icon +
                       '.png'),
                 ),
-                title: Text(apiModel.daily[index].dt.toString()),
-                subtitle: Text('Daytime temperature ' +
-                    apiModel.daily[index].temp.day.toString()),
+                title: Text(apiModel.hourly[index].dt.toString()),
               ),
             ],
           ),

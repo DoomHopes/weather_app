@@ -9,10 +9,10 @@ class HomePage extends StatelessWidget {
     return Consumer<HomePageProvider>(
       builder: (context, providerData, child) => Scaffold(
         appBar: AppBar(
-          title: Text('Wallpaper app'),
+          title: Text('Weather app'),
         ),
         body: Visibility(
-          child: providerData.listViewBuilder('30.5167', '50.4333'),
+          child: providerData.listViewBuilder(),
         ),
       ),
     );

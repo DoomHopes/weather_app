@@ -59,7 +59,7 @@ class Current {
     this.rain,
   });
 
-  int dt;
+  DateTime dt;
   int sunrise;
   int sunset;
   double temp;
@@ -77,7 +77,7 @@ class Current {
   Rain rain;
 
   factory Current.fromJson(Map<String, dynamic> json) => Current(
-        dt: json["dt"],
+        dt: DateTime.fromMillisecondsSinceEpoch(json["dt"] * 1000).toLocal(),
         sunrise: json["sunrise"] == null ? null : json["sunrise"],
         sunset: json["sunset"] == null ? null : json["sunset"],
         temp: json["temp"].toDouble(),
@@ -220,7 +220,7 @@ class Daily {
     this.uvi,
   });
 
-  int dt;
+  DateTime dt;
   int sunrise;
   int sunset;
   Temp temp;
@@ -237,7 +237,7 @@ class Daily {
   double uvi;
 
   factory Daily.fromJson(Map<String, dynamic> json) => Daily(
-        dt: json["dt"],
+        dt: DateTime.fromMillisecondsSinceEpoch(json["dt"] * 1000).toLocal(),
         sunrise: json["sunrise"],
         sunset: json["sunset"],
         temp: Temp.fromJson(json["temp"]),
