@@ -16,13 +16,26 @@ class HomePageProvider extends ChangeNotifier {
   double _lat;
   double _lon;
 
+  int dropDownItem = 1;
+
+  void changeItem(int value) {
+    dropDownItem = value;
+    notifyListeners();
+  }
+
   Widget listViewBuilder() {
     if (apiModel == null) {
-      getModelFromApi(_lat, _lon);
+      getMainPageAndScheme();
       return const CircularProgressLoading();
-    } else {
+    } else if (dropDownItem == 1) {
       return DailyListViewBuilder();
+    } else if (dropDownItem == 2) {
+      return HourlyListViewBuilder();
     }
+  }
+
+  Future<void> getMainPageAndScheme() async {
+    await getModelFromApi();
   }
 
   Future<void> getCurrentLocation() async {
@@ -32,19 +45,19 @@ class HomePageProvider extends ChangeNotifier {
     _lon = position.longitude;
   }
 
-  Future<void> getModelFromApi(double lat, double lon) async {
-    apiModel = await getData(lat, lon);
+  Future<void> getModelFromApi() async {
+    apiModel = await getData();
     notifyListeners();
   }
 
-  // lat = 30.5238000, lon = 50.4546600
-  Future<ApiModel> getData(double lat, double lon) async {
-    if (lat == null || lon == null) {
-      lat = 50.588341299999996;
-      lon = 30.5125639268269;
+  // lat = 50.588341299999996, lon = 30.5125639268269
+  Future<ApiModel> getData() async {
+    if (_lat == null || _lon == null) {
+      _lat = 50.588341299999996;
+      _lon = 30.5125639268269;
     }
     String url =
-        'https://api.openweathermap.org/data/2.5/onecall?lat=$lat&lon=$lon&exclude=minutely,current&appid=$_apiKey&units=metric';
+        'https://api.openweathermap.org/data/2.5/onecall?lat=$_lat&lon=$_lon&exclude=minutely,current&appid=$_apiKey&units=metric';
     final response = await http.get(url);
     if (response.statusCode == 200) {
       final dynamic jsondata = json.decode(response.body);

@@ -10,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _value = 1;
+
   @override
   void initState() {
     ConnectionChecker().checkConnection(context);
@@ -23,13 +25,31 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  String dropdownValue;
   @override
   Widget build(BuildContext context) {
     return Consumer<HomePageProvider>(
       builder: (context, providerData, child) => Scaffold(
         appBar: AppBar(
           title: Text('Weather app'),
+          actions: <Widget>[
+            DropdownButton<int>(
+              value: _value,
+              items: <DropdownMenuItem<int>>[
+                DropdownMenuItem(
+                  child: Text('Daily'),
+                  value: 1,
+                ),
+                DropdownMenuItem(
+                  child: Text('Hourly'),
+                  value: 2,
+                ),
+              ],
+              onChanged: (int value) {
+                setState(() => _value = value);
+                providerData.changeItem(value);
+              },
+            )
+          ],
         ),
         body: Visibility(
           child: providerData.listViewBuilder(),

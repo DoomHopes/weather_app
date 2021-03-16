@@ -22,6 +22,8 @@ class HourlyListViewBuilder extends StatelessWidget {
                   ),
                   title:
                       Text(providerData.apiModel.hourly[index].dt.toString()),
+                  subtitle: Text('Temperature: ' +
+                      providerData.apiModel.hourly[index].temp.toString()),
                 ),
               ],
             ),
