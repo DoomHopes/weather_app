@@ -78,8 +78,8 @@ class Current {
 
   factory Current.fromJson(Map<String, dynamic> json) => Current(
         dt: DateTime.fromMillisecondsSinceEpoch(json["dt"] * 1000).toLocal(),
-        sunrise: json["sunrise"] == null ? null : json["sunrise"],
-        sunset: json["sunset"] == null ? null : json["sunset"],
+        sunrise: json["sunrise"],
+        sunset: json["sunset"],
         temp: json["temp"].toDouble(),
         feelsLike: json["feels_like"].toDouble(),
         pressure: json["pressure"],
@@ -266,7 +266,7 @@ class Daily {
         "dew_point": dewPoint,
         "wind_speed": windSpeed,
         "wind_deg": windDeg,
-        //"weather": List<dynamic>.from(weather.map((x) => x.toJson())),
+        "weather": List<dynamic>.from(weather.map((x) => x.toJson())),
         "clouds": clouds,
         "pop": pop,
         "rain": rain == null ? null : rain,

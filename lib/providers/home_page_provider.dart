@@ -12,31 +12,25 @@ class HomePageProvider extends ChangeNotifier {
   ApiModel _apiModel;
   static const _apiKey = '4d38180ec165390666ef08d99a2a52cb';
 
-  double _lat;
-  double _lon;
+  double _lat = 30.5167;
+  double _lon = 50.4333;
 
   Widget listViewBuilder() {
     if (_apiModel == null) {
-      getCurrentLocation();
       getModelFromApi(_lat, _lon);
       return const CircularProgressLoading();
     } else {
-      return DaylyListViewBuilder(
+      return DailyListViewBuilder(
         apiModel: _apiModel,
       );
     }
   }
 
   Future<void> getCurrentLocation() async {
-    try {
-      Position position = await Geolocator()
-          .getCurrentPosition(desiredAccuracy: LocationAccuracy.lowest);
-      _lat = position.latitude;
-      _lon = position.longitude;
-      notifyListeners();
-    } catch (e) {
-      debugPrint(e.toString());
-    }
+    Position position = await Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.lowest);
+    _lat = position.latitude;
+    _lon = position.longitude;
   }
 
   Future<void> getModelFromApi(double lat, double lon) async {

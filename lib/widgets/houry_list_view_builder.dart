@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/api_model.dart';
 
-class HouryListViewBuilder extends StatelessWidget {
+class HourlyListViewBuilder extends StatelessWidget {
   final ApiModel apiModel;
 
-  HouryListViewBuilder({this.apiModel});
+  HourlyListViewBuilder({this.apiModel});
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: apiModel.daily.length,
+      itemCount: apiModel.hourly.length,
       itemBuilder: (context, index) {
         return Card(
           child: Column(

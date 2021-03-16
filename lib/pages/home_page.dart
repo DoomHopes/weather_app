@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/providers/home_page_provider.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    context.read<HomePageProvider>().getCurrentLocation();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<HomePageProvider>(

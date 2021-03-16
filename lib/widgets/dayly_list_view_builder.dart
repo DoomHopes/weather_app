@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/api_model.dart';
 
-class DaylyListViewBuilder extends StatelessWidget {
+class DailyListViewBuilder extends StatelessWidget {
   final ApiModel apiModel;
 
-  DaylyListViewBuilder({this.apiModel});
+  DailyListViewBuilder({this.apiModel});
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
