@@ -30,6 +30,16 @@ Future<void> initAllForApp() async {
   Hive.registerAdapter(TempAdapter());
 }
 
+Locale checkLocale() {
+  String locale =
+      Locale(ui.window.locale.toString().replaceRange(2, 5, '')).toString();
+  if (locale == 'ru') {
+    return Locale('ru');
+  } else {
+    return Locale('en');
+  }
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -47,7 +57,7 @@ class MyApp extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        locale: Locale(ui.window.locale.toString().replaceRange(2, 5, '')),
+        locale: checkLocale(),
         title: 'Weather App',
         color: Colors.grey,
         debugShowCheckedModeBanner: false,
