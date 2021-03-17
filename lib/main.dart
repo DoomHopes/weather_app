@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:weather_app/pages/home_page.dart';
+import 'package:weather_app/pages/splash_page.dart';
 import 'dart:ui' as ui;
 
 import 'providers/home_page_provider.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         color: Colors.grey,
         debugShowCheckedModeBanner: false,
         routes: {
-          '/first': (context) => HomePage(),
+          '/first': (context) => SplashScreen(),
         },
       ),
     );
