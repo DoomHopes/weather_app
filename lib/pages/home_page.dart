@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _value = 1;
+  DateTime dateTime = DateTime.now();
 
   @override
   void initState() {
@@ -30,17 +31,28 @@ class _HomePageState extends State<HomePage> {
     return Consumer<HomePageProvider>(
       builder: (context, providerData, child) => Scaffold(
         appBar: AppBar(
-          title: Text('Weather app'),
+          title: Text(dateTime.day.toString() +
+              '.' +
+              dateTime.month.toString() +
+              '.' +
+              dateTime.year.toString()),
           actions: <Widget>[
             DropdownButton<int>(
               value: _value,
+              dropdownColor: Colors.blueAccent,
               items: <DropdownMenuItem<int>>[
                 DropdownMenuItem(
-                  child: Text(S.of(context).Daily),
+                  child: Text(
+                    S.of(context).Daily,
+                    style: TextStyle(color: Colors.white),
+                  ),
                   value: 1,
                 ),
                 DropdownMenuItem(
-                  child: Text(S.of(context).Hourly),
+                  child: Text(
+                    S.of(context).Hourly,
+                    style: TextStyle(color: Colors.white),
+                  ),
                   value: 2,
                 ),
               ],

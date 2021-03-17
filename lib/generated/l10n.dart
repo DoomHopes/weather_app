@@ -85,30 +85,30 @@ class S {
     );
   }
 
-  /// `Temperature: `
+  /// `t°: `
   String get Temperature {
     return Intl.message(
-      'Temperature: ',
+      't°: ',
       name: 'Temperature',
       desc: '',
       args: [],
     );
   }
 
-  /// `Temperature at day: `
+  /// `t° at day: `
   String get TemperatureAtDay {
     return Intl.message(
-      'Temperature at day: ',
+      't° at day: ',
       name: 'TemperatureAtDay',
       desc: '',
       args: [],
     );
   }
 
-  /// `Temperature at night: `
+  /// `t° at night: `
   String get TemperatureAtNight {
     return Intl.message(
-      'Temperature at night: ',
+      't° at night: ',
       name: 'TemperatureAtNight',
       desc: '',
       args: [],

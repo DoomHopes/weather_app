@@ -38,7 +38,7 @@ class HomePageProvider extends ChangeNotifier {
     } else if (dropDownItem == 1) {
       return DailyListViewBuilder(apiModel: apiModel);
     } else if (dropDownItem == 2) {
-      return HourlyListViewBuilder();
+      return HourlyListViewBuilder(apiModel: apiModel);
     }
   }
 
@@ -64,6 +64,7 @@ class HomePageProvider extends ChangeNotifier {
   Future<void> getCurrentLocation() async {
     Position position = await Geolocator()
         .getCurrentPosition(desiredAccuracy: LocationAccuracy.lowest);
+
     _lat = position.latitude;
     _lon = position.longitude;
   }

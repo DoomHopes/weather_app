@@ -31,9 +31,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "Probability" : MessageLookupByLibrary.simpleMessage("Probability of precipitation: "),
     "Sunrise" : MessageLookupByLibrary.simpleMessage("Sunrise: "),
     "Sunset" : MessageLookupByLibrary.simpleMessage("Sunset: "),
-    "Temperature" : MessageLookupByLibrary.simpleMessage("Temperature: "),
-    "TemperatureAtDay" : MessageLookupByLibrary.simpleMessage("Temperature at day: "),
-    "TemperatureAtNight" : MessageLookupByLibrary.simpleMessage("Temperature at night: "),
+    "Temperature" : MessageLookupByLibrary.simpleMessage("t°: "),
+    "TemperatureAtDay" : MessageLookupByLibrary.simpleMessage("t° at day: "),
+    "TemperatureAtNight" : MessageLookupByLibrary.simpleMessage("t° at night: "),
     "WindDirection" : MessageLookupByLibrary.simpleMessage("Wind direction: "),
     "WindSpeed" : MessageLookupByLibrary.simpleMessage("Wind speed: "),
     "metreSec" : MessageLookupByLibrary.simpleMessage(" metre/sec")
