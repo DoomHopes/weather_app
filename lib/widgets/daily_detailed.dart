@@ -38,7 +38,8 @@ class DailyDetailed extends StatelessWidget {
             ),
             Text(
               'During the day it feels like ' +
-                  apiModel.daily[index].feelsLike.day.toString(),
+                  apiModel.daily[index].feelsLike.day.toStringAsFixed(0) +
+                  '°',
               style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 20,
@@ -46,7 +47,8 @@ class DailyDetailed extends StatelessWidget {
             ),
             Text(
               'Temperature at day: ' +
-                  apiModel.daily[index].temp.day.toString(),
+                  apiModel.daily[index].temp.day.toStringAsFixed(0) +
+                  '°',
               style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 20,
@@ -54,7 +56,8 @@ class DailyDetailed extends StatelessWidget {
             ),
             Text(
               'Temperature at night: ' +
-                  apiModel.daily[index].temp.night.toString(),
+                  apiModel.daily[index].temp.night.toStringAsFixed(0) +
+                  '°',
               style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 20,

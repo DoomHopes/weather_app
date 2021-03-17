@@ -80,6 +80,7 @@ class HomePageProvider extends ChangeNotifier {
 
   // lat = 50.588341299999996, lon = 30.5125639268269
   Future<ApiModel> getData() async {
+    await getCurrentLocation();
     if (_lat == null || _lon == null) {
       _lat = 50.588341299999996;
       _lon = 30.5125639268269;

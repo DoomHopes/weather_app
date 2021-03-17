@@ -38,14 +38,17 @@ class HourlyDetailed extends StatelessWidget {
             ),
             Text(
               'During the day it feels like ' +
-                  apiModel.hourly[index].feelsLike.toString(),
+                  apiModel.hourly[index].feelsLike.toStringAsFixed(0) +
+                  '°',
               style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 20,
               ),
             ),
             Text(
-              'Temperature at day: ' + apiModel.hourly[index].temp.toString(),
+              'Temperature at day: ' +
+                  apiModel.hourly[index].temp.toStringAsFixed(0) +
+                  '°',
               style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 20,

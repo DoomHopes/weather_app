@@ -15,7 +15,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    context.read<HomePageProvider>().getCurrentLocation();
     Hive.openBox<ApiModel>('modelbox');
     super.initState();
   }

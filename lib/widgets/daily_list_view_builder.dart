@@ -27,7 +27,8 @@ class DailyListViewBuilder extends StatelessWidget {
                     .toString()
                     .replaceFirst('.000', '')),
                 subtitle: Text('Daytime temperature ' +
-                    apiModel.daily[index].temp.day.toString()),
+                    apiModel.daily[index].temp.day.toStringAsFixed(0) +
+                    '°'),
                 onTap: () {
                   showDialog(
                     context: context,

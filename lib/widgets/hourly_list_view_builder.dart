@@ -27,7 +27,9 @@ class HourlyListViewBuilder extends StatelessWidget {
                       .toString()
                       .replaceFirst('.000', '')),
                   subtitle: Text('Temperature: ' +
-                      providerData.apiModel.hourly[index].temp.toString()),
+                      providerData.apiModel.hourly[index].temp
+                          .toStringAsFixed(0) +
+                      '°'),
                   onTap: () {
                     showDialog(
                       context: context,
