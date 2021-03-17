@@ -14,5 +14,16 @@
     "Probability":"Вероятность выпадения осадков: ",
     "Sunrise":"Восход: ",
     "Sunset":"Закат: ",
-    "LoadData":"Загрузка ..."
+    "LoadData":"Загрузка ...",
+    "Northern":"Северный",
+    "Northeastern":"Севево-Восточный",
+    "Eastern":"Восточный",
+    "Southeastern":"Юго-Восточный",
+    "South":"Южный",
+    "Southwestern":"Юго-Западный",
+    "West":"Западный",
+    "Northwestern":"Северо-Западный",
+    "AtmosphericTemperature":"Атмосферная температура ",
+    "Cloudiness":"Облачность "
+
 }

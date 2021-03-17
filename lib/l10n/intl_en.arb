@@ -14,5 +14,15 @@
     "Probability":"Probability of precipitation: ",
     "Sunrise":"Sunrise: ",
     "Sunset":"Sunset: ",
-    "LoadData":"Loading data ..."
+    "LoadData":"Loading data ...",
+    "Northern":"Northern",
+    "Northeastern":"Northeastern",
+    "Eastern":"Eastern",
+    "Southeastern":"Southeastern",
+    "South":"South",
+    "Southwestern":"Southwestern",
+    "West":"West",
+    "Northwestern":"Northwestern",
+    "AtmosphericTemperature":"Atmospheric temperature ",
+    "Cloudiness":"Cloudiness "
 }

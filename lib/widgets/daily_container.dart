@@ -2,43 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/generated/l10n.dart';
 import 'package:weather_app/models/api_model.dart';
 
-class DailyDetailed extends StatelessWidget {
+class DailyContainer extends Container {
   final ApiModel apiModel;
   final int index;
+  final BuildContext context;
+  final Function function;
 
-  DailyDetailed({this.apiModel, this.index});
-
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      backgroundColor: Colors.lightBlue,
-      child: Container(
-        padding: EdgeInsets.all(30),
-        child: ListView(
+  DailyContainer({this.context, this.apiModel, this.index, this.function})
+      : super(
+            child: ListView(
           scrollDirection: Axis.vertical,
           children: <Widget>[
-            Container(
-              alignment: Alignment.center,
-              child: Image.network(
-                'http://openweathermap.org/img/wn/' +
-                    apiModel.daily[index].weather[0].icon +
-                    '@2x.png',
-              ),
-            ),
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Text(
-                apiModel.daily[index].weather[0].description.toString(),
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 20,
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-              width: 10,
-            ),
             FittedBox(
               fit: BoxFit.scaleDown,
               alignment: Alignment.bottomLeft,
@@ -53,8 +27,8 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
-              width: 10,
+              height: 5,
+              width: 5,
             ),
             FittedBox(
               fit: BoxFit.scaleDown,
@@ -70,8 +44,8 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
-              width: 10,
+              height: 5,
+              width: 5,
             ),
             FittedBox(
               fit: BoxFit.scaleDown,
@@ -87,8 +61,8 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
-              width: 10,
+              height: 5,
+              width: 5,
             ),
             FittedBox(
               fit: BoxFit.scaleDown,
@@ -104,16 +78,15 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
-              width: 10,
+              height: 5,
+              width: 5,
             ),
             FittedBox(
               fit: BoxFit.scaleDown,
               alignment: Alignment.bottomLeft,
               child: Text(
                 S.of(context).WindDirection +
-                    apiModel.daily[index].windDeg.toString() +
-                    ' degrees',
+                    function(apiModel.daily[index].windDeg, context),
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
                   fontSize: 15,
@@ -121,8 +94,8 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
-              width: 10,
+              height: 5,
+              width: 5,
             ),
             FittedBox(
               fit: BoxFit.scaleDown,
@@ -137,8 +110,8 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
-              width: 10,
+              height: 5,
+              width: 5,
             ),
             FittedBox(
               fit: BoxFit.scaleDown,
@@ -155,8 +128,8 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
-              width: 10,
+              height: 5,
+              width: 5,
             ),
             FittedBox(
               fit: BoxFit.scaleDown,
@@ -173,8 +146,5 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
+        ));
 }

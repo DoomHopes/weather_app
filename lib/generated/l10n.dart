@@ -194,6 +194,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Northern`
+  String get Northern {
+    return Intl.message(
+      'Northern',
+      name: 'Northern',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Northeastern`
+  String get Northeastern {
+    return Intl.message(
+      'Northeastern',
+      name: 'Northeastern',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Eastern`
+  String get Eastern {
+    return Intl.message(
+      'Eastern',
+      name: 'Eastern',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Southeastern`
+  String get Southeastern {
+    return Intl.message(
+      'Southeastern',
+      name: 'Southeastern',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `South`
+  String get South {
+    return Intl.message(
+      'South',
+      name: 'South',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Southwestern`
+  String get Southwestern {
+    return Intl.message(
+      'Southwestern',
+      name: 'Southwestern',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `West`
+  String get West {
+    return Intl.message(
+      'West',
+      name: 'West',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Northwestern`
+  String get Northwestern {
+    return Intl.message(
+      'Northwestern',
+      name: 'Northwestern',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Atmospheric temperature `
+  String get AtmosphericTemperature {
+    return Intl.message(
+      'Atmospheric temperature ',
+      name: 'AtmosphericTemperature',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cloudiness `
+  String get Cloudiness {
+    return Intl.message(
+      'Cloudiness ',
+      name: 'Cloudiness',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

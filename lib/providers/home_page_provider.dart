@@ -33,7 +33,7 @@ class HomePageProvider extends ChangeNotifier {
   // ignore: missing_return
   Widget listViewBuilder() {
     if (apiModel == null) {
-      getMainPageAndScheme();
+      getMainData();
       return const CircularProgressLoading();
     } else if (dropDownItem == 1) {
       return DailyListViewBuilder(apiModel: apiModel);
@@ -52,7 +52,7 @@ class HomePageProvider extends ChangeNotifier {
     return false;
   }
 
-  Future<void> getMainPageAndScheme() async {
+  Future<void> getMainData() async {
     connection = await check();
     if (connection == true) {
       await getModelFromApi();
