@@ -1,3 +1,7 @@
+import 'package:hive/hive.dart';
+part 'api_model.g.dart';
+
+@HiveType(typeId: 0)
 class ApiModel {
   ApiModel({
     this.lat,
@@ -7,12 +11,17 @@ class ApiModel {
     this.hourly,
     this.daily,
   });
-
+  @HiveField(0)
   double lat;
+  @HiveField(1)
   double lon;
+  @HiveField(2)
   String timezone;
+  @HiveField(3)
   int timezoneOffset;
+  @HiveField(4)
   List<Current> hourly;
+  @HiveField(5)
   List<Daily> daily;
 
   factory ApiModel.fromJson(Map<String, dynamic> json) => ApiModel(
@@ -35,6 +44,7 @@ class ApiModel {
       };
 }
 
+@HiveType(typeId: 2)
 class Current {
   Current({
     this.dt,
@@ -55,21 +65,37 @@ class Current {
     this.rain,
   });
 
+  @HiveField(0)
   DateTime dt;
+  @HiveField(2)
   int sunrise;
+  @HiveField(3)
   int sunset;
+  @HiveField(4)
   double temp;
+  @HiveField(5)
   double feelsLike;
+  @HiveField(6)
   int pressure;
+  @HiveField(7)
   int humidity;
+  @HiveField(8)
   double dewPoint;
+  @HiveField(9)
   double uvi;
+  @HiveField(10)
   int clouds;
+  @HiveField(11)
   int visibility;
+  @HiveField(12)
   double windSpeed;
+  @HiveField(13)
   int windDeg;
+  @HiveField(14)
   List<Weather> weather;
+  @HiveField(15)
   double pop;
+  @HiveField(16)
   Rain rain;
 
   factory Current.fromJson(Map<String, dynamic> json) => Current(
@@ -112,11 +138,12 @@ class Current {
       };
 }
 
+@HiveType(typeId: 3)
 class Rain {
   Rain({
     this.the1H,
   });
-
+  @HiveField(0)
   double the1H;
 
   factory Rain.fromJson(Map<String, dynamic> json) => Rain(
@@ -128,6 +155,7 @@ class Rain {
       };
 }
 
+@HiveType(typeId: 4)
 class Weather {
   Weather({
     this.id,
@@ -135,68 +163,31 @@ class Weather {
     this.description,
     this.icon,
   });
-
+  @HiveField(0)
   int id;
-  Main main;
+  @HiveField(1)
+  String main;
+  @HiveField(2)
   String description;
+  @HiveField(3)
   String icon;
 
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
         id: json["id"],
-        main: mainValues.map[json["main"]],
+        main: json["main"],
         description: json["description"],
         icon: json["icon"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "main": mainValues.reverse[main],
+        "main": main,
         "description": description,
         "icon": icon,
       };
 }
 
-enum Description {
-  OVERCAST_CLOUDS,
-  LIGHT_RAIN,
-  CLEAR_SKY,
-  BROKEN_CLOUDS,
-  SCATTERED_CLOUDS
-}
-
-final descriptionValues = EnumValues({
-  "broken clouds": Description.BROKEN_CLOUDS,
-  "clear sky": Description.CLEAR_SKY,
-  "light rain": Description.LIGHT_RAIN,
-  "overcast clouds": Description.OVERCAST_CLOUDS,
-  "scattered clouds": Description.SCATTERED_CLOUDS
-});
-
-enum Icon {
-  THE_04_D,
-  THE_10_D,
-  THE_01_D,
-  THE_04_N,
-  THE_10_N,
-  THE_03_D,
-  THE_01_N
-}
-
-final iconValues = EnumValues({
-  "01d": Icon.THE_01_D,
-  "01n": Icon.THE_01_N,
-  "03d": Icon.THE_03_D,
-  "04d": Icon.THE_04_D,
-  "04n": Icon.THE_04_N,
-  "10d": Icon.THE_10_D,
-  "10n": Icon.THE_10_N
-});
-
-enum Main { CLOUDS, RAIN, CLEAR }
-
-final mainValues =
-    EnumValues({"Clear": Main.CLEAR, "Clouds": Main.CLOUDS, "Rain": Main.RAIN});
-
+@HiveType(typeId: 5)
 class Daily {
   Daily({
     this.dt,
@@ -216,20 +207,35 @@ class Daily {
     this.uvi,
   });
 
+  @HiveField(0)
   DateTime dt;
+  @HiveField(1)
   DateTime sunrise;
+  @HiveField(2)
   DateTime sunset;
+  @HiveField(3)
   Temp temp;
+  @HiveField(4)
   FeelsLike feelsLike;
+  @HiveField(5)
   int pressure;
+  @HiveField(6)
   int humidity;
+  @HiveField(7)
   double dewPoint;
+  @HiveField(8)
   double windSpeed;
+  @HiveField(9)
   int windDeg;
+  @HiveField(10)
   List<Weather> weather;
+  @HiveField(11)
   int clouds;
+  @HiveField(12)
   double pop;
+  @HiveField(13)
   double rain;
+  @HiveField(14)
   double uvi;
 
   factory Daily.fromJson(Map<String, dynamic> json) => Daily(
@@ -272,6 +278,7 @@ class Daily {
       };
 }
 
+@HiveType(typeId: 6)
 class FeelsLike {
   FeelsLike({
     this.day,
@@ -280,9 +287,13 @@ class FeelsLike {
     this.morn,
   });
 
+  @HiveField(0)
   double day;
+  @HiveField(1)
   double night;
+  @HiveField(2)
   double eve;
+  @HiveField(3)
   double morn;
 
   factory FeelsLike.fromJson(Map<String, dynamic> json) => FeelsLike(
@@ -300,6 +311,7 @@ class FeelsLike {
       };
 }
 
+@HiveType(typeId: 7)
 class Temp {
   Temp({
     this.day,
@@ -310,11 +322,17 @@ class Temp {
     this.morn,
   });
 
+  @HiveField(0)
   double day;
+  @HiveField(1)
   double min;
+  @HiveField(2)
   double max;
+  @HiveField(3)
   double night;
+  @HiveField(4)
   double eve;
+  @HiveField(5)
   double morn;
 
   factory Temp.fromJson(Map<String, dynamic> json) => Temp(
@@ -334,18 +352,4 @@ class Temp {
         "eve": eve,
         "morn": morn,
       };
-}
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
-  }
 }

@@ -34,11 +34,17 @@ dependencies:
   intl: 
   geolocator: ^5.3.2+2
   data_connection_checker: ^0.3.4
+  connectivity: ^0.4.2
+
+  hive: 
+  hive_flutter: 
   
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hive_generator: 
+  build_runner: 
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

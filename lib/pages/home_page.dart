@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/models/api_model.dart';
 import 'package:weather_app/providers/home_page_provider.dart';
-import 'package:weather_app/utils/connection_checker.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,14 +15,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    ConnectionChecker().checkConnection(context);
     context.read<HomePageProvider>().getCurrentLocation();
+    Hive.openBox<ApiModel>('modelbox');
     super.initState();
   }
 
   @override
   void dispose() {
-    ConnectionChecker().listener.cancel();
     super.dispose();
   }
 

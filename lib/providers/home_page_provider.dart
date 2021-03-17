@@ -2,19 +2,25 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:weather_app/database/database_hive.dart';
 import 'package:weather_app/models/api_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/widgets/circular_progress_loading.dart';
 import 'package:weather_app/widgets/daily_list_view_builder.dart';
 import 'package:weather_app/widgets/hourly_list_view_builder.dart';
+import 'package:connectivity/connectivity.dart';
 
 class HomePageProvider extends ChangeNotifier {
   ApiModel apiModel;
 
   static const _apiKey = '4d38180ec165390666ef08d99a2a52cb';
 
+  final hive = DataBaseHive();
+
   double _lat;
   double _lon;
+
+  bool connection;
 
   int dropDownItem = 1;
 
@@ -23,6 +29,7 @@ class HomePageProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  // ignore: missing_return
   Widget listViewBuilder() {
     if (apiModel == null) {
       getMainPageAndScheme();
@@ -34,8 +41,23 @@ class HomePageProvider extends ChangeNotifier {
     }
   }
 
+  Future<bool> check() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.mobile) {
+      return true;
+    } else if (connectivityResult == ConnectivityResult.wifi) {
+      return true;
+    }
+    return false;
+  }
+
   Future<void> getMainPageAndScheme() async {
-    await getModelFromApi();
+    connection = await check();
+    if (connection == true) {
+      await getModelFromApi();
+    } else if (connection == false) {
+      getModelFromHive();
+    }
   }
 
   Future<void> getCurrentLocation() async {
@@ -45,8 +67,14 @@ class HomePageProvider extends ChangeNotifier {
     _lon = position.longitude;
   }
 
+  void getModelFromHive() {
+    apiModel = hive.getModel();
+    notifyListeners();
+  }
+
   Future<void> getModelFromApi() async {
     apiModel = await getData();
+    hive.addModel(apiModel);
     notifyListeners();
   }
 
