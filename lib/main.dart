@@ -6,6 +6,8 @@ import 'package:weather_app/models/api_model.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:weather_app/pages/splash_page.dart';
 import 'dart:ui' as ui;
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'generated/l10n.dart';
 
 import 'providers/home_page_provider.dart';
 
@@ -38,7 +40,14 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        locale: ui.window.locale,
+        localizationsDelegates: [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        locale: Locale(ui.window.locale.toString().replaceRange(2, 5, '')),
         title: 'Weather App',
         color: Colors.grey,
         debugShowCheckedModeBanner: false,

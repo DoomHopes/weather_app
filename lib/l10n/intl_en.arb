@@ -1,0 +1,18 @@
+{
+    "Daily":"Daily",
+    "Hourly":"Hourly",
+    "DaytimeTemperature":"Daytime temperature ",
+    "Description":"Description ",
+    "DuringTheDayItFeelsLike":"During the day it feels like ",
+    "Temperature":"Temperature: ",
+    "TemperatureAtDay":"Temperature at day: ",
+    "TemperatureAtNight":"Temperature at night: ",
+    "Humidity":"Humidity: ",
+    "WindSpeed":"Wind speed: ",
+    "metreSec":" metre/sec",
+    "WindDirection":"Wind direction: ",
+    "Probability":"Probability of precipitation: ",
+    "Sunrise":"Sunrise: ",
+    "Sunset":"Sunset: ",
+    "LoadData":"Loading data ..."
+}

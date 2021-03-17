@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/generated/l10n.dart';
 import 'package:weather_app/providers/home_page_provider.dart';
 
 import 'hourly_detailed.dart';
@@ -26,7 +27,7 @@ class HourlyListViewBuilder extends StatelessWidget {
                   title: Text(providerData.apiModel.hourly[index].dt
                       .toString()
                       .replaceFirst('.000', '')),
-                  subtitle: Text('Temperature: ' +
+                  subtitle: Text(S.of(context).Temperature +
                       providerData.apiModel.hourly[index].temp
                           .toStringAsFixed(0) +
                       '°'),

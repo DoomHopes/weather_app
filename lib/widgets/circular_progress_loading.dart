@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/generated/l10n.dart';
 
 class CircularProgressLoading extends StatelessWidget {
   const CircularProgressLoading({
@@ -13,7 +14,7 @@ class CircularProgressLoading extends StatelessWidget {
         children: <Widget>[
           const CircularProgressIndicator(),
           const SizedBox(width: 40.0),
-          Text('Loading data ....'),
+          Text(S.of(context).LoadData),
         ],
       ),
     );

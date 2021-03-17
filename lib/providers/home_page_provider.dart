@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
@@ -85,8 +86,10 @@ class HomePageProvider extends ChangeNotifier {
       _lat = 50.588341299999996;
       _lon = 30.5125639268269;
     }
+    String locale =
+        Locale(ui.window.locale.toString().replaceRange(2, 5, '')).toString();
     String url =
-        'https://api.openweathermap.org/data/2.5/onecall?lat=$_lat&lon=$_lon&exclude=minutely,current&appid=$_apiKey&units=metric';
+        'https://api.openweathermap.org/data/2.5/onecall?lat=$_lat&lon=$_lon&exclude=minutely,current&appid=$_apiKey&units=metric&lang=$locale';
     final response = await http.get(url);
     if (response.statusCode == 200) {
       final dynamic jsondata = json.decode(response.body);

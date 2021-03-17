@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/generated/l10n.dart';
 import 'package:weather_app/models/api_model.dart';
 
 class DailyDetailed extends StatelessWidget {
@@ -29,15 +30,15 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             Text(
-              'Description: ' +
-                  apiModel.daily[index].weather[0].description.toString(),
+              /*S.of(context).Description +*/
+              apiModel.daily[index].weather[0].description.toString(),
               style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 20,
               ),
             ),
             Text(
-              'During the day it feels like ' +
+              S.of(context).DuringTheDayItFeelsLike +
                   apiModel.daily[index].feelsLike.day.toStringAsFixed(0) +
                   '°',
               style: TextStyle(
@@ -46,7 +47,7 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             Text(
-              'Temperature at day: ' +
+              S.of(context).TemperatureAtDay +
                   apiModel.daily[index].temp.day.toStringAsFixed(0) +
                   '°',
               style: TextStyle(
@@ -55,7 +56,7 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             Text(
-              'Temperature at night: ' +
+              S.of(context).TemperatureAtNight +
                   apiModel.daily[index].temp.night.toStringAsFixed(0) +
                   '°',
               style: TextStyle(
@@ -64,23 +65,25 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             Text(
-              'Humidity: ' + apiModel.daily[index].humidity.toString() + '%',
+              S.of(context).Humidity +
+                  apiModel.daily[index].humidity.toString() +
+                  '%',
               style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 20,
               ),
             ),
             Text(
-              'Wind speed: ' +
+              S.of(context).WindSpeed +
                   apiModel.daily[index].windSpeed.toString() +
-                  ' metre/sec',
+                  S.of(context).metreSec,
               style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 20,
               ),
             ),
             Text(
-              'Wind direction: ' +
+              S.of(context).WindDirection +
                   apiModel.daily[index].windDeg.toString() +
                   ' degrees',
               style: TextStyle(
@@ -89,15 +92,14 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             Text(
-              'Probability of precipitation: ' +
-                  apiModel.daily[index].pop.toString(),
+              S.of(context).Probability + apiModel.daily[index].pop.toString(),
               style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 20,
               ),
             ),
             Text(
-              'Sunrise: ' +
+              S.of(context).Sunrise +
                   apiModel.daily[index].sunrise
                       .toString()
                       .replaceFirst('.000', ''),
@@ -107,7 +109,7 @@ class DailyDetailed extends StatelessWidget {
               ),
             ),
             Text(
-              'Sunset: ' +
+              S.of(context).Sunset +
                   apiModel.daily[index].sunset
                       .toString()
                       .replaceFirst('.000', ''),

@@ -1,0 +1,18 @@
+{
+    "Daily":"По дням",
+    "Hourly":"По часам",
+    "DaytimeTemperature":"Дневная температура ",
+    "Description":"Описание ",
+    "DuringTheDayItFeelsLike":"Температура днем кажется как ",
+    "Temperature":"Температура: ",
+    "TemperatureAtDay":"Температура днем: ",
+    "TemperatureAtNight":"Температура ночью: ",
+    "Humidity":"Влажность: ",
+    "WindSpeed":"Скорость ветра: ",
+    "metreSec":" м/с",
+    "WindDirection":"Направление ветра: ",
+    "Probability":"Вероятность выпадения осадков: ",
+    "Sunrise":"Восход: ",
+    "Sunset":"Закат: ",
+    "LoadData":"Загрузка ..."
+}

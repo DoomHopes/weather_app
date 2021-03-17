@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
+import 'package:weather_app/generated/l10n.dart';
 import 'package:weather_app/models/api_model.dart';
 import 'package:weather_app/providers/home_page_provider.dart';
 
@@ -35,11 +36,11 @@ class _HomePageState extends State<HomePage> {
               value: _value,
               items: <DropdownMenuItem<int>>[
                 DropdownMenuItem(
-                  child: Text('Daily'),
+                  child: Text(S.of(context).Daily),
                   value: 1,
                 ),
                 DropdownMenuItem(
-                  child: Text('Hourly'),
+                  child: Text(S.of(context).Hourly),
                   value: 2,
                 ),
               ],
