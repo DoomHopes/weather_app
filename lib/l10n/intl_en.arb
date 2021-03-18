@@ -7,6 +7,7 @@
     "Temperature":"t°: ",
     "TemperatureAtDay":"t° at day: ",
     "TemperatureAtNight":"t° at night: ",
+    "TemperatureAtMorn":"t° at morning: ",
     "Humidity":"Humidity: ",
     "WindSpeed":"Wind speed: ",
     "metreSec":" metre/sec",

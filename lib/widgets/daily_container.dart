@@ -18,6 +18,20 @@ class DailyContainer extends Container {
               fit: BoxFit.scaleDown,
               alignment: Alignment.bottomLeft,
               child: Text(
+                S.of(context).TemperatureAtMorn +
+                    apiModel.daily[index].temp.morn.toStringAsFixed(0) +
+                    '°',
+                style: GoogleFonts.lato(),
+              ),
+            ),
+            SizedBox(
+              height: 5,
+              width: 5,
+            ),
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.bottomLeft,
+              child: Text(
                 S.of(context).TemperatureAtDay +
                     apiModel.daily[index].temp.day.toStringAsFixed(0) +
                     '°',

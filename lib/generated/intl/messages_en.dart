@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Sunset" : MessageLookupByLibrary.simpleMessage("Sunset: "),
     "Temperature" : MessageLookupByLibrary.simpleMessage("t°: "),
     "TemperatureAtDay" : MessageLookupByLibrary.simpleMessage("t° at day: "),
+    "TemperatureAtMorn" : MessageLookupByLibrary.simpleMessage("t° at morning: "),
     "TemperatureAtNight" : MessageLookupByLibrary.simpleMessage("t° at night: "),
     "West" : MessageLookupByLibrary.simpleMessage("West"),
     "WindDirection" : MessageLookupByLibrary.simpleMessage("Wind direction: "),

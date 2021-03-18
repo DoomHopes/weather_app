@@ -7,6 +7,7 @@
     "Temperature":"t°: ",
     "TemperatureAtDay":"t° днем: ",
     "TemperatureAtNight":"t° ночью: ",
+    "TemperatureAtMorn":"t° утром: ",
     "Humidity":"Влажность: ",
     "WindSpeed":"Скорость ветра: ",
     "metreSec":" м/с",

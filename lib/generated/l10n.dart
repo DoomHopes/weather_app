@@ -115,6 +115,16 @@ class S {
     );
   }
 
+  /// `t° at morning: `
+  String get TemperatureAtMorn {
+    return Intl.message(
+      't° at morning: ',
+      name: 'TemperatureAtMorn',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Humidity: `
   String get Humidity {
     return Intl.message(
