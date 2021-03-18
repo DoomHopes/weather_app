@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/generated/l10n.dart';
 import 'package:weather_app/models/api_model.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DailyCard extends Card {
   final int index;
@@ -24,13 +25,14 @@ class DailyCard extends Card {
               FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  apiModel.daily[index].dt.day.toString() +
-                      '.' +
-                      apiModel.daily[index].dt.month.toString() +
-                      '.' +
-                      apiModel.daily[index].dt.year.toString(),
-                  style: TextStyle(fontSize: 15),
-                ),
+                    apiModel.daily[index].dt.day.toString() +
+                        '.' +
+                        apiModel.daily[index].dt.month.toString() +
+                        '.' +
+                        apiModel.daily[index].dt.year.toString(),
+                    style: GoogleFonts
+                        .lato() //TextStyle(fontSize: 15, fontFamily: GoogleFonts.lato()),
+                    ),
               ),
               SizedBox(
                 height: 10,
@@ -42,7 +44,7 @@ class DailyCard extends Card {
                   S.of(context).Temperature +
                       apiModel.daily[index].temp.day.toStringAsFixed(0) +
                       '°',
-                  style: TextStyle(fontSize: 15),
+                  style: GoogleFonts.lato(),
                 ),
               ),
               SizedBox(
@@ -56,10 +58,7 @@ class DailyCard extends Card {
                     apiModel.daily[index].weather[0].description.toString(),
                     textAlign: TextAlign.center,
                     softWrap: true,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 15,
-                    ),
+                    style: GoogleFonts.lato(),
                   ),
                 ),
               ),

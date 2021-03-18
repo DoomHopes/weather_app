@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/generated/l10n.dart';
 import 'package:weather_app/models/api_model.dart';
 
@@ -23,10 +24,7 @@ class HourlyContainer extends Container {
                   S.of(context).TemperatureAtDay +
                       apiModel.hourly[index].temp.toStringAsFixed(0) +
                       '°',
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 15,
-                  ),
+                  style: GoogleFonts.lato(),
                 ),
               ),
               SizedBox(
@@ -40,10 +38,7 @@ class HourlyContainer extends Container {
                   S.of(context).Humidity +
                       apiModel.hourly[index].humidity.toString() +
                       '%',
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 15,
-                  ),
+                  style: GoogleFonts.lato(),
                 ),
               ),
               SizedBox(
@@ -57,10 +52,7 @@ class HourlyContainer extends Container {
                   S.of(context).WindSpeed +
                       apiModel.hourly[index].windSpeed.toString() +
                       S.of(context).metreSec,
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 15,
-                  ),
+                  style: GoogleFonts.lato(),
                 ),
               ),
               SizedBox(
@@ -73,10 +65,7 @@ class HourlyContainer extends Container {
                 child: Text(
                   S.of(context).Probability +
                       apiModel.hourly[index].pop.toString(),
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 15,
-                  ),
+                  style: GoogleFonts.lato(),
                 ),
               ),
               SizedBox(
@@ -90,10 +79,7 @@ class HourlyContainer extends Container {
                   S.of(context).AtmosphericTemperature +
                       apiModel.hourly[index].dewPoint.toString() +
                       '°',
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 15,
-                  ),
+                  style: GoogleFonts.lato(),
                 ),
               ),
               SizedBox(
@@ -107,10 +93,7 @@ class HourlyContainer extends Container {
                   S.of(context).Cloudiness +
                       apiModel.hourly[index].clouds.toString() +
                       '%',
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 15,
-                  ),
+                  style: GoogleFonts.lato(),
                 ),
               )
             ],

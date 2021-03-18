@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/generated/l10n.dart';
 import 'package:weather_app/models/api_model.dart';
 
@@ -27,7 +28,7 @@ class HourlyCard extends Card {
                   apiModel.hourly[index].dt.day.toString() +
                       '.' +
                       apiModel.hourly[index].dt.month.toString(),
-                  style: TextStyle(fontSize: 15),
+                  style: GoogleFonts.lato(),
                 ),
               ),
               SizedBox(
@@ -41,7 +42,7 @@ class HourlyCard extends Card {
                       '.' +
                       apiModel.hourly[index].dt.minute.toString() +
                       '0',
-                  style: TextStyle(fontSize: 15),
+                  style: GoogleFonts.lato(),
                 ),
               ),
               SizedBox(
@@ -54,7 +55,7 @@ class HourlyCard extends Card {
                   S.of(context).Temperature +
                       apiModel.hourly[index].temp.toStringAsFixed(0) +
                       '°',
-                  style: TextStyle(fontSize: 15),
+                  style: GoogleFonts.lato(),
                 ),
               ),
               SizedBox(
@@ -68,10 +69,7 @@ class HourlyCard extends Card {
                     apiModel.hourly[index].weather[0].description.toString(),
                     textAlign: TextAlign.center,
                     softWrap: true,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 15,
-                    ),
+                    style: GoogleFonts.lato(),
                   ),
                 ),
               ),

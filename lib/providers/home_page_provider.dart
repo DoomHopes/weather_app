@@ -36,9 +36,9 @@ class HomePageProvider extends ChangeNotifier {
       getMainData();
       return const CircularProgressLoading();
     } else if (dropDownItem == 1) {
-      return DailyListViewBuilder(apiModel: apiModel);
+      return DailyListViewBuilder();
     } else if (dropDownItem == 2) {
-      return HourlyListViewBuilder(apiModel: apiModel);
+      return HourlyListViewBuilder();
     }
   }
 

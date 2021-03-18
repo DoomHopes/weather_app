@@ -1,15 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weather_app/generated/l10n.dart';
-import 'package:weather_app/models/api_model.dart';
+import 'package:weather_app/providers/home_page_provider.dart';
 import 'package:weather_app/widgets/daily_container.dart';
 
 import 'daily_card.dart';
 
 class DailyListViewBuilder extends StatefulWidget {
-  final ApiModel apiModel;
-  DailyListViewBuilder({this.apiModel});
-
   @override
   _DailyListViewBuilderState createState() => _DailyListViewBuilderState();
 }
@@ -48,38 +46,40 @@ class _DailyListViewBuilderState extends State<DailyListViewBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
-        Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemCount: widget.apiModel.daily.length,
-            itemBuilder: (BuildContext context, int index) => GestureDetector(
-              child: DailyCard(
-                apiModel: widget.apiModel,
-                context: context,
-                index: index,
+    return Consumer<HomePageProvider>(
+      builder: (context, providerData, child) => Column(
+        mainAxisSize: MainAxisSize.max,
+        children: <Widget>[
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: providerData.apiModel.daily.length,
+              itemBuilder: (BuildContext context, int index) => GestureDetector(
+                child: DailyCard(
+                  apiModel: providerData.apiModel,
+                  context: context,
+                  index: index,
+                ),
+                onTap: () {
+                  setIndex(index);
+                },
               ),
-              onTap: () {
-                setIndex(index);
-              },
             ),
           ),
-        ),
-        Expanded(
-          child: Container(
-            padding: EdgeInsets.all(30),
-            child: DailyContainer(
-              apiModel: widget.apiModel,
-              context: context,
-              index: _selectedIndex,
-              function: winDir,
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(30),
+              child: DailyContainer(
+                apiModel: providerData.apiModel,
+                context: context,
+                index: _selectedIndex,
+                function: winDir,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

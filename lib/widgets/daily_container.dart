@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:weather_app/generated/l10n.dart';
 import 'package:weather_app/models/api_model.dart';
 
@@ -20,10 +21,7 @@ class DailyContainer extends Container {
                 S.of(context).TemperatureAtDay +
                     apiModel.daily[index].temp.day.toStringAsFixed(0) +
                     '°',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 15,
-                ),
+                style: GoogleFonts.lato(),
               ),
             ),
             SizedBox(
@@ -37,10 +35,7 @@ class DailyContainer extends Container {
                 S.of(context).TemperatureAtNight +
                     apiModel.daily[index].temp.night.toStringAsFixed(0) +
                     '°',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 15,
-                ),
+                style: GoogleFonts.lato(),
               ),
             ),
             SizedBox(
@@ -54,10 +49,7 @@ class DailyContainer extends Container {
                 S.of(context).Humidity +
                     apiModel.daily[index].humidity.toString() +
                     '%',
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 15,
-                ),
+                style: GoogleFonts.lato(),
               ),
             ),
             SizedBox(
@@ -71,10 +63,7 @@ class DailyContainer extends Container {
                 S.of(context).WindSpeed +
                     apiModel.daily[index].windSpeed.toString() +
                     S.of(context).metreSec,
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 15,
-                ),
+                style: GoogleFonts.lato(),
               ),
             ),
             SizedBox(
@@ -87,10 +76,7 @@ class DailyContainer extends Container {
               child: Text(
                 S.of(context).WindDirection +
                     function(apiModel.daily[index].windDeg, context),
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 15,
-                ),
+                style: GoogleFonts.lato(),
               ),
             ),
             SizedBox(
@@ -103,10 +89,7 @@ class DailyContainer extends Container {
               child: Text(
                 S.of(context).Probability +
                     apiModel.daily[index].pop.toString(),
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 15,
-                ),
+                style: GoogleFonts.lato(),
               ),
             ),
             SizedBox(
@@ -121,10 +104,7 @@ class DailyContainer extends Container {
                     apiModel.daily[index].sunrise
                         .toString()
                         .replaceFirst('.000', ''),
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 15,
-                ),
+                style: GoogleFonts.lato(),
               ),
             ),
             SizedBox(
@@ -139,10 +119,7 @@ class DailyContainer extends Container {
                     apiModel.daily[index].sunset
                         .toString()
                         .replaceFirst('.000', ''),
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 15,
-                ),
+                style: GoogleFonts.lato(),
               ),
             ),
           ],
