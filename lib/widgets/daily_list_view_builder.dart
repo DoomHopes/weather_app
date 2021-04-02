@@ -15,7 +15,7 @@ class DailyListViewBuilder extends StatefulWidget {
 class _DailyListViewBuilderState extends State<DailyListViewBuilder> {
   int _selectedIndex = 0;
 
-  void setIndex(int i) {
+  void _setIndex(int i) {
     setState(() {
       _selectedIndex = i;
     });
@@ -62,7 +62,7 @@ class _DailyListViewBuilderState extends State<DailyListViewBuilder> {
                   index: index,
                 ),
                 onTap: () {
-                  setIndex(index);
+                  _setIndex(index);
                 },
               ),
             ),

@@ -14,7 +14,7 @@ class HourlyListViewBuilder extends StatefulWidget {
 class _HourlyListViewBuilderState extends State<HourlyListViewBuilder> {
   int _selectedIndex = 0;
 
-  void setIndex(int i) {
+  void _setIndex(int i) {
     setState(() {
       _selectedIndex = i;
     });
@@ -38,7 +38,7 @@ class _HourlyListViewBuilderState extends State<HourlyListViewBuilder> {
                   index: index,
                 ),
                 onTap: () {
-                  setIndex(index);
+                  _setIndex(index);
                 },
               ),
             ),
